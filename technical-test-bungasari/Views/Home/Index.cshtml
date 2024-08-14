@@ -1,0 +1,30 @@
+﻿@using technical_test_bungasari.Services
+@{
+    ViewData["Title"] = "Consume API Outbond";
+}
+@model Root
+
+<h2>The Data</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date From</th>
+            <th>Date To</th>
+            <!-- Add other headers based on your model properties -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.d.results)
+        {
+            @foreach (var item2 in item.NAVDOHDR.results)
+            {
+                <tr>
+                    <td>@item.DatFr</td>
+                    <td>@item.DatTo</td>
+                    <!-- Add other columns based on your model properties -->
+                </tr>
+            }
+        }
+    </tbody>
+</table>
