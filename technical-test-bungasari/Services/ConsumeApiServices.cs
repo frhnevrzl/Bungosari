@@ -4,6 +4,7 @@ using RestSharp.Authenticators;
 using Microsoft.AspNetCore.Http;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Net.Http.Headers;
 
 namespace technical_test_bungasari.Services
 {
@@ -19,23 +20,22 @@ namespace technical_test_bungasari.Services
 
         public async Task<Root> GetApiData()
         {
-            //_httpClient.DefaultRequestHeaders.Accept.Clear();
-            ////_httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            //_httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
 
-            //var response = await _httpClient.GetAsync(_serviceName);
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, _serviceName);
+            var content = new StringContent("{}");
+            content.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/json");
 
-            var requests = new RestRequest("GET");
-            requests.AddHeader("Content-Type", "application/json");
-            var client = new RestClient(_serviceName);
-            var response = client.Execute(requests);
+            request.Content = content;
 
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    //var content = await response.Content.ReadAsStringAsync();
-            //    var data = JsonConvert.DeserializeObject<Root>(content);
-            //    return data;
-            //}
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var contentBody = await response.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<Root>(contentBody);
+                return data;
+            }
             return new Root();
         }
     }
