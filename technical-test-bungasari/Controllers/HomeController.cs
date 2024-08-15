@@ -19,6 +19,7 @@ namespace technical_test_bungasari.Controllers
         }
 
         public async Task<IActionResult> Index()
+        
         {
             var data = await _consumeApi.GetApiData();
             return View(data);

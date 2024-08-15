@@ -1,30 +1,233 @@
 ﻿@using technical_test_bungasari.Services
 @{
     ViewData["Title"] = "Consume API Outbond";
+    var i = 1;
 }
 @model Root
 
-<h2>The Data</h2>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Date From</th>
-            <th>Date To</th>
-            <!-- Add other headers based on your model properties -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.d.results)
-        {
-            @foreach (var item2 in item.NAVDOHDR.results)
-            {
-                <tr>
-                    <td>@item.DatFr</td>
-                    <td>@item.DatTo</td>
-                    <!-- Add other columns based on your model properties -->
-                </tr>
-            }
-        }
-    </tbody>
-</table>
+<section class="content">
+    <div class="container-fluid">
+        <details>
+            <summary>Data NAVSHHDR</summary>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2 class="card-title">NAVSHHDR</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive mt-3 mb-3" id="table-NAVSHHDR">
+                                        <table id="table-main-NAVSHHDR" class="table table-striped table-hover table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Mandt</th>
+                                                    <th>Tknum</th>
+                                                    <th>Tpnum</th>
+                                                    <th>Vbeln</th>
+                                                    <th>Exti1</th>
+                                                    <th>Exti2</th>
+                                                    <th>Vstel</th>
+                                                    <th>Udate</th>
+                                                    <th>Utime</th>
+                                                    <th>ShType</th>
+                                                    <th>FwAgen</th>
+                                                    <th>ShRout</th>
+                                                    <th>ContNo</th>
+                                                    <th>CreateBy</th>
+                                                    <th>CreateOn</th>
+                                                    <th>CreateAt</th>
+                                                    <th>ChangeBy</th>
+                                                    <th>ChangeOn</th>
+                                                    <th>ChangeAt</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.d.results)
+                                                {
+                                                    @foreach (var item2 in item.NAVSHHDR.results)
+                                                    {
+                                                        <tr>
+                                                            <td>@i</td>
+                                                            <td>@item2.Mandt</td>
+                                                            <td>@item2.Tknum</td>
+                                                            <td>@item2.Tpnum</td>
+                                                            <td>@item2.Vbeln</td>
+                                                            <td>@item2.Exti1</td>
+                                                            <td>@item2.Exti2</td>
+                                                            <td>@item2.Vstel</td>
+                                                            <td>@item2.Udate</td>
+                                                            <td>@item2.Utime</td>
+                                                            <td>@item2.ShType</td>
+                                                            <td>@item2.FwAgen</td>
+                                                            <td>@item2.ShRout</td>
+                                                            <td>@item2.ContNo</td>
+                                                            <td>@item2.CreateBy</td>
+                                                            <td>@item2.CreateOn</td>
+                                                            <td>@item2.CreateAt</td>
+                                                            <td>@item2.ChangeBy</td>
+                                                            <td>@item2.ChangeOn</td>
+                                                            <td>@item2.ChangeAt</td>
+                                                        </tr>
+                                                        i++;
+                                                    }
+                                                    i = 1;
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>Data NAVDOHDR</summary>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2 class="card-title">NAVDOHDR</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive mt-3 mb-3" id="table-NAVDOHDR">
+                                        <table id="table-main-NAVDOHDR" class="table table-striped table-hover table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Mandt</th>
+                                                    <th>Vbeln</th>
+                                                    <th>Kunag</th>
+                                                    <th>Name1</th>
+                                                    <th>Name2</th>
+                                                    <th>Name3</th>
+                                                    <th>Name4</th>
+                                                    <th>Avgzk</th>
+                                                    <th>Avgps</th>
+                                                    <th>Lddat</th>
+                                                    <th>WadatIst</th>
+                                                    <th>Wbstk</th>
+                                                    <th>Vhilm</th>
+                                                    <th>Lfart</th>
+                                                    <th>Vstel</th>
+                                                    <th>Udate</th>
+                                                    <th>Utime</th>
+                                                    <th>Cmgst</th>
+                                                    <th>Donote</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.d.results)
+                                                {
+                                                    @foreach (var item2 in item.NAVDOHDR.results)
+                                                    {
+                                                        <tr>
+                                                            <td>@i</td>
+                                                            <td>@item2.Mandt</td>
+                                                            <td>@item2.Vbeln</td>
+                                                            <td>@item2.Kunag</td>
+                                                            <td>@item2.Name1</td>
+                                                            <td>@item2.Name2</td>
+                                                            <td>@item2.Name3</td>
+                                                            <td>@item2.Name4</td>
+                                                            <td>@item2.Avgzk</td>
+                                                            <td>@item2.Avgps</td>
+                                                            <td>@item2.Lddat</td>
+                                                            <td>@item2.WadatIst</td>
+                                                            <td>@item2.Wbstk</td>
+                                                            <td>@item2.Vhilm</td>
+                                                            <td>@item2.Lfart</td>
+                                                            <td>@item2.Vstel</td>
+                                                            <td>@item2.Udate</td>
+                                                            <td>@item2.Utime</td>
+                                                            <td>@item2.Cmgst</td>
+                                                            <td>@item2.Donote</td>
+                                                        </tr>
+                                                        i++;
+                                                    }
+                                                    i = 1;
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>Data NAVDOITM</summary>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2 class="card-title">NAVDOITM</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive mt-3 mb-3" id="table-NAVDOITM">
+                                        <table id="table-main-NAVDOITM" class="table table-striped table-hover table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Mandt</th>
+                                                    <th>Vbeln</th>
+                                                    <th>Posnr</th>
+                                                    <th>Matnr</th>
+                                                    <th>Arktx</th>
+                                                    <th>Pfimg</th>
+                                                    <th>Lfimg</th>
+                                                    <th>Vrkme</th>
+                                                    <th>Werks</th>
+                                                    <th>Vstel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.d.results)
+                                                {
+                                                    @foreach (var item2 in item.NAVDOITM.results)
+                                                    {
+                                                        <tr>
+                                                            <td>@i</td>
+                                                            <td>@item2.Mandt</td>
+                                                            <td>@item2.Vbeln</td>
+                                                            <td>@item2.Posnr</td>
+                                                            <td>@item2.Matnr</td>
+                                                            <td>@item2.Arktx</td>
+                                                            <td>@item2.Pfimg</td>
+                                                            <td>@item2.Lfimg</td>
+                                                            <td>@item2.Vrkme</td>
+                                                            <td>@item2.Werks</td>
+                                                            <td>@item2.Vstel</td>
+                                                        </tr>
+                                                        i++;
+                                                    }
+                                                    i = 1;
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+</section>
